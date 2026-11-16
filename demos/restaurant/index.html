@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Bayou &amp; Bell Kitchen | Houston Gulf Coast food (concept)</title>
+<meta name="description" content="A concept restaurant site by Site Ready Studio for a fictional Houston kitchen: full menu as text, weekly hours, a map, and one-tap call and directions.">
+<meta name="theme-color" content="#1d4538">
+<style>
+:root{
+ --cream:#f6eedf;--paper:#fffaf1;--ink:#2b1e15;--mut:#6a5646;--line:#e3d4bc;
+ --green:#1d4538;--green-d:#14332a;--brick:#a2402a;--brick-d:#86331f;--gold:#e1a73d;--roux:#7a3f1d;
+ --display:Rockwell,"Rockwell Nova","Roboto Slab","Clarendon","DejaVu Serif",Georgia,serif;
+ --sans:"Avenir Next",Avenir,"Segoe UI","Helvetica Neue",system-ui,-apple-system,Arial,sans-serif;
+ --rib:34px;--hdr:68px;--r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--rib) + var(--hdr) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;padding-top:var(--rib);background:var(--cream);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--brick)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;z-index:60;background:var(--ink);color:#fff;padding:10px 14px;border-radius:8px}
+.skip:focus{top:calc(var(--rib) + 8px)}
+
+/* concept ribbon */
+.ribbon{position:fixed;top:0;left:0;right:0;height:var(--rib);z-index:50;background:#120d09;color:#efe4d2;font-size:12.5px;line-height:1.3;
+ display:flex;align-items:center;justify-content:center;gap:14px;padding:0 14px;text-align:center}
+.ribbon a{color:#f3c873;font-weight:600;text-underline-offset:2px;padding:0 2px;display:inline-flex;align-items:center;min-height:30px}
+.ribbon .links{display:flex;gap:14px}
+
+/* header */
+.hdr{position:sticky;top:var(--rib);z-index:40;background:rgba(246,238,223,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{height:var(--hdr);display:flex;align-items:center;gap:18px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);margin-right:auto;min-height:44px}
+.logo svg{width:34px;height:34px;flex:none}
+.logo b{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:-.01em;line-height:1;display:block}
+.logo small{display:block;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--mut);margin-top:3px;font-weight:600}
+.nav{display:flex;gap:2px}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:12px 12px;border-radius:8px}
+.nav a:hover{background:rgba(29,69,56,.08)}
+.acts{display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;font-weight:700;font-size:15px;
+ text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover{transform:translateY(-1px)}
+.b-brick{background:var(--brick);color:#fff}.b-brick:hover{background:var(--brick-d)}
+.b-green{background:var(--green);color:#fff}.b-green:hover{background:var(--green-d)}
+.b-line{border-color:var(--green);color:var(--green);background:transparent}.b-line:hover{background:rgba(29,69,56,.07)}
+.b-gold{background:var(--gold);color:#2b1e15}.b-gold:hover{background:#efb54b}
+.b-cream{border-color:#f6eedf;color:#fff;background:transparent}.b-cream:hover{background:rgba(255,255,255,.1)}
+.btn.lg{min-height:52px;padding:0 24px;font-size:16px}
+
+/* hero */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:70px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green)}
+.eyebrow:before{content:"";width:26px;height:2px;background:var(--brick)}
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;color:var(--ink)}
+h1{font-size:clamp(36px,4.9vw,62px);line-height:1.04;margin:16px 0 18px}
+h1 span{color:var(--brick)}
+.promise{font-size:clamp(18px,1.9vw,21px);color:var(--mut);max-width:30em;margin:0 0 26px}
+.today{display:flex;align-items:center;gap:14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:14px 18px;max-width:440px;margin:0 0 26px;box-shadow:0 1px 0 #fff inset,0 8px 24px -16px rgba(43,30,21,.35)}
+.today .dot{width:12px;height:12px;border-radius:50%;background:#2f8a5b;flex:none;box-shadow:0 0 0 5px rgba(47,138,91,.16)}
+.today.closed .dot{background:var(--brick);box-shadow:0 0 0 5px rgba(162,64,42,.16)}
+.today b{display:block;font-size:16px}
+.today span{display:block;font-size:14.5px;color:var(--mut)}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.art{position:relative}
+.art svg{display:block;width:100%;height:auto}
+.scallop{height:22px;background:
+ radial-gradient(circle at 11px 0,var(--green) 11px,transparent 11.5px) 0 0/22px 22px repeat-x}
+
+/* generic sections */
+section{position:relative}
+.sec{padding:84px 0}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--brick);margin:0 0 10px}
+h2{font-size:clamp(32px,4.2vw,50px);line-height:1.06;margin:0 0 14px}
+.lede{color:var(--mut);max-width:38em;margin:0 0 34px;font-size:18px}
+
+/* menu */
+.menu{background:var(--green);color:#f6eedf;background-image:
+ radial-gradient(rgba(255,255,255,.05) 1.2px,transparent 1.3px);background-size:18px 18px}
+.menu h2{color:#fff}.menu .kicker{color:var(--gold)}.menu .lede{color:#d5e0d7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px;padding:0;list-style:none}
+.chips a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(246,238,223,.4);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.chips a:hover{background:rgba(255,255,255,.1);border-color:#f6eedf}
+.legend{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;font-size:14.5px;color:#e4ece6;margin:0 0 30px;padding:14px 18px;border:1px dashed rgba(246,238,223,.35);border-radius:12px}
+.legend b{font-weight:700;color:#fff;margin-right:2px}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.card{background:var(--paper);color:var(--ink);border-radius:18px;padding:30px 30px 22px;box-shadow:0 20px 40px -26px rgba(0,0,0,.6);position:relative}
+.card.wide{grid-column:1/-1}
+.card h3{font-size:27px;margin:0;display:flex;align-items:center;gap:12px}
+.card h3 svg{width:36px;height:36px;flex:none}
+.card .note{margin:6px 0 14px;color:var(--mut);font-size:14.5px}
+.items{list-style:none;margin:0;padding:0}
+.items li{padding:13px 0;border-top:1px dashed var(--line)}
+.items li:first-child{border-top:0}
+.row{display:flex;align-items:baseline;gap:10px}
+.row .n{font-weight:700;font-size:17px}
+.row .lead{flex:1;border-bottom:2px dotted #cdbb9d;transform:translateY(-4px);min-width:16px}
+.row .p{font-family:var(--display);font-weight:700;font-size:17px;white-space:nowrap}
+.items p{margin:3px 0 0;color:var(--mut);font-size:15px;line-height:1.5}
+.tag{display:inline-flex;align-items:center;justify-content:center;font:700 11px/1 var(--sans);letter-spacing:.04em;height:20px;min-width:24px;padding:0 5px;border-radius:5px;vertical-align:2px;margin-left:4px}
+.t-v{background:#e2eedf;color:#24563a}
+.t-vg{background:#d4ead0;color:#1b4a2b}
+.t-gf{background:#f6e2b8;color:#6d4709}
+.t-hot{background:#f8dcd4;color:#8c2f1b;min-width:22px}
+.t-hot svg{width:12px;height:12px}
+.legend .tag{margin-left:0}
+.cols2{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.cols2 li:nth-child(2){border-top:0}
+.allergy{margin:26px 0 0;font-size:14.5px;color:#d5e0d7;max-width:52em}
+
+/* about */
+.about .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.about p{margin:0 0 16px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+.fact b{display:block;font-family:var(--display);font-size:19px;color:var(--green);margin-bottom:2px}
+.fact span{font-size:14.5px;color:var(--mut);line-height:1.45;display:block}
+
+/* hours */
+.hours{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hours .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+table{width:100%;border-collapse:collapse;font-size:17px}
+th,td{text-align:left;padding:14px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700}
+td{color:var(--ink)}
+td small{display:block;color:var(--mut);font-size:14px}
+tr.is-today{background:#fbecc9}
+tr.is-today th:after{content:"Today";margin-left:10px;font:700 11px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;background:var(--green);color:#fff;padding:4px 7px;border-radius:5px;vertical-align:2px}
+.hh{display:flex;gap:14px;align-items:flex-start;background:var(--green);color:#f6eedf;border-radius:16px;padding:20px 22px;margin-top:22px}
+.hh svg{width:40px;height:40px;flex:none}
+.hh b{display:block;color:#fff;font-size:17px}
+.hh span{font-size:15px;color:#d5e0d7}
+
+/* find us */
+.find .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.map{border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(43,30,21,.55);background:#efe5d2}
+.map svg{display:block;width:100%;height:auto}
+.addr{font-family:var(--display);font-size:24px;line-height:1.25;margin:0 0 6px}
+.addr small{display:block;font-family:var(--sans);font-size:14px;color:var(--mut);margin-top:6px}
+dl{margin:22px 0 26px;display:grid;gap:14px}
+dl div{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start}
+dl svg{width:24px;height:24px;fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
+dt{font-weight:700}dd{margin:0;color:var(--mut);font-size:15.5px}
+
+/* events */
+.events{background:var(--brick);color:#fff;overflow:hidden}
+.events .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:34px;align-items:center;padding-top:54px;padding-bottom:54px}
+.events h2{color:#fff;font-size:clamp(28px,3.4vw,40px);margin:0 0 8px}
+.events p{margin:0;color:#fbe6dc;max-width:40em}
+.events .cta{justify-content:flex-end}
+.events .badge{width:110px;height:110px}
+
+/* footer */
+footer{background:var(--green-d);color:#d5e0d7;font-size:15.5px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:34px;padding-top:58px;padding-bottom:30px}
+footer h3{font-family:var(--sans);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+footer a{color:#fff;text-underline-offset:3px}
+footer p{margin:0 0 8px}
+footer .logo{color:#fff;margin-bottom:12px}
+footer .logo small{color:#b9c9be}
+.social{display:flex;gap:10px;margin-top:14px}
+.social a{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1.5px solid rgba(255,255,255,.3)}
+.social a:hover{background:rgba(255,255,255,.1)}
+.social svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fine{border-top:1px solid rgba(255,255,255,.12);padding:18px 0 28px;font-size:13.5px;color:#a9bcb0}
+.fine .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding-top:0;padding-bottom:0}
+.fine a{color:#f3c873}
+.flinks{margin:0}
+.flinks a{display:inline-flex;align-items:center;min-height:44px}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+ .steam path{animation:steam 4.5s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+ .steam path:nth-child(2){animation-delay:1.2s}.steam path:nth-child(3){animation-delay:2.4s}
+ @keyframes steam{0%,100%{opacity:.15;transform:translateY(4px)}50%{opacity:.75;transform:translateY(-4px)}}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* tablet */
+@media (max-width:980px){
+ .nav{display:none}
+ .hero .wrap,.about .wrap,.hours .wrap,.find .wrap{grid-template-columns:1fr;gap:34px}
+ .art{max-width:520px;margin:0 auto;width:100%}
+ .events .wrap{grid-template-columns:1fr;gap:20px}
+ .events .cta{justify-content:flex-start}
+ footer .wrap{grid-template-columns:1fr 1fr}
+}
+/* phone */
+@media (max-width:720px){
+ :root{--rib:48px;--hdr:64px}
+ body{font-size:16.5px}
+ .ribbon{flex-direction:column;gap:0;font-size:12px}
+ .ribbon .links{gap:16px}
+ .ribbon a{min-height:22px}
+ .wrap{padding:0 16px}
+ .logo svg{width:30px;height:30px}
+ .logo{gap:8px}
+ .logo b{font-size:16px;white-space:nowrap}
+ .hdr .wrap{gap:10px}
+ .eyebrow{font-size:11.5px;letter-spacing:.12em}
+ .eyebrow:before{display:none}
+ .logo small{font-size:9.5px;letter-spacing:.26em}
+ .acts{gap:6px}
+ .acts .btn{padding:0 12px;font-size:14px;gap:6px}
+ .acts .btn svg{width:16px;height:16px}
+ .hero .wrap{padding-top:22px;padding-bottom:46px;gap:18px}
+ .hero .art{order:-1;max-width:250px}
+ h1{margin:10px 0 14px}
+ .promise{margin-bottom:20px}
+ .today{margin-bottom:20px}
+ .cta .btn{flex:1 1 auto}
+ .sec{padding:60px 0}
+ .mgrid{grid-template-columns:1fr;gap:16px}
+ .card{padding:22px 18px 14px;border-radius:16px}
+ .card h3{font-size:24px}
+ .cols2{grid-template-columns:1fr}
+ .cols2 li:nth-child(2){border-top:1px dashed var(--line)}
+ .facts{grid-template-columns:1fr}
+ th,td{padding:12px 8px;font-size:16px}
+ .events .badge{width:76px;height:76px}
+ .addr{font-size:20px}
+ .events .cta .btn{flex:1 1 auto}
+ footer .wrap{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:400px){
+ .acts .b-line svg{display:none}
+}
+@media (max-width:360px){
+ .logo small{display:none}
+ .logo b{font-size:14.5px}
+ .acts .btn{padding:0 11px}
+ .acts .btn svg{display:none}
+}
+@media (max-width:340px){
+ .hdr .logo svg{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ribbon" role="note" aria-label="About this page">
+ <span>Concept site by Site Ready Studio. Fictional business.</span>
+ <span class="links"><a href="/quote/?ref=demo-restaurant&amp;industry=restaurants-cafes">Get one like this</a><a href="/work/">Back to sample work</a></span>
+</div>
+
+<!-- shared symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+ <defs>
+  <symbol id="bell" viewBox="0 0 40 40">
+   <circle cx="20" cy="20" r="19" fill="#1d4538"/>
+   <path d="M20 8.5c.9 0 1.6.7 1.6 1.6v1c4 .8 6.6 4.2 6.6 8.6v5.2l2.2 3.1H9.6l2.2-3.1v-5.2c0-4.4 2.6-7.8 6.6-8.6v-1c0-.9.7-1.6 1.6-1.6z" fill="#e1a73d"/>
+   <circle cx="20" cy="30.6" r="2.3" fill="#e1a73d"/>
+   <path d="M14.5 19.2c.3-2.2 1.6-3.8 3.4-4.6" stroke="#fff4dc" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="pepper" viewBox="0 0 16 16"><path d="M10.5 2.5c-.3 1 .1 1.8 1 2.2M4 13.5c3.8.3 8-2.7 7.6-7.4-.1-1-1.1-1.5-2-1.1C7.8 5.8 7 8.3 5.6 10 4.8 11 3.3 11.6 2.5 11.8c-.4.1-.4 1.6 1.5 1.7z" fill="currentColor" stroke="currentColor" stroke-width=".8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h3.5l1.7 4.5-2.3 1.4a11 11 0 0 0 7.2 7.2l1.4-2.3L21 15.5V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></symbol>
+ </defs>
+</svg>
+
+<header class="hdr">
+ <div class="wrap">
+  <a class="logo" href="#top" aria-label="Bayou and Bell Kitchen, back to top">
+   <svg aria-hidden="true"><use href="#bell"/></svg>
+   <span><b>Bayou &amp; Bell</b><small>Kitchen</small></span>
+  </a>
+  <nav class="nav" aria-label="Main">
+   <a href="#menu">Menu</a><a href="#hours">Hours</a><a href="#find-us">Find us</a><a href="#events">Events</a>
+  </nav>
+  <div class="acts">
+   <a class="btn b-brick" href="tel:+17135550142"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call</a>
+   <a class="btn b-line" href="#find-us"><svg aria-hidden="true"><use href="#i-pin"/></svg>Directions</a>
+  </div>
+ </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-labelledby="h1">
+ <div class="wrap">
+  <div>
+   <span class="eyebrow">Houston Heights &middot; Gulf Coast &amp; Southern</span>
+   <h1 id="h1">Gulf Coast cooking, <span>Southern comfort</span>, right down the street.</h1>
+   <p class="promise">Gumbo with a dark roux, Gulf shrimp and grits, fried chicken with hot honey, and a weekend brunch worth getting up for. Walk in, or call ahead for a table.</p>
+   <div class="today" id="today" aria-live="polite">
+    <i class="dot" aria-hidden="true"></i>
+    <div><b id="today-line">Open Tuesday to Sunday</b><span id="today-sub">Tue to Thu 11 am to 9 pm &middot; Fri 11 am to 10 pm &middot; weekend brunch from 10 am</span></div>
+   </div>
+   <div class="cta">
+    <a class="btn lg b-green" href="#menu">See the menu</a>
+    <a class="btn lg b-brick" href="tel:+17135550142"><svg aria-hidden="true"><use href="#i-phone"/></svg>(713) 555-0142</a>
+   </div>
+  </div>
+
+  <div class="art" aria-hidden="true">
+   <svg viewBox="0 0 520 500" role="presentation">
+    <defs>
+     <pattern id="gingham" width="36" height="36" patternUnits="userSpaceOnUse">
+      <rect width="36" height="36" fill="#f3e3c4"/>
+      <rect width="18" height="36" fill="#a2402a" opacity=".22"/>
+      <rect width="36" height="18" fill="#a2402a" opacity=".22"/>
+     </pattern>
+     <radialGradient id="roux" cx="45%" cy="40%" r="60%"><stop offset="0" stop-color="#8f4b22"/><stop offset="1" stop-color="#5c2c12"/></radialGradient>
+     <radialGradient id="plate" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#fffdf7"/><stop offset="1" stop-color="#efe3cc"/></radialGradient>
+     <radialGradient id="iron" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#3b3530"/><stop offset="1" stop-color="#1a1714"/></radialGradient>
+     <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#2b1e15" flood-opacity=".28"/></filter>
+    </defs>
+    <!-- tablecloth -->
+    <rect x="18" y="18" width="484" height="464" rx="40" fill="url(#gingham)"/>
+    <rect x="18" y="18" width="484" height="464" rx="40" fill="none" stroke="#e3d4bc" stroke-width="2"/>
+
+    <!-- skillet cornbread -->
+    <g filter="url(#sh)">
+     <rect x="356" y="74" width="120" height="20" rx="10" fill="#1a1714" transform="rotate(-28 356 84)"/>
+     <circle cx="390" cy="128" r="74" fill="url(#iron)"/>
+     <circle cx="390" cy="128" r="62" fill="#2a2420"/>
+     <g fill="#e7b04a" stroke="#c98b2c" stroke-width="2">
+      <path d="M390 128 L390 68 A60 60 0 0 1 442 98 Z"/>
+      <path d="M390 128 L442 98 A60 60 0 0 1 442 158 Z"/>
+      <path d="M390 128 L442 158 A60 60 0 0 1 390 188 Z"/>
+      <path d="M390 128 L390 188 A60 60 0 0 1 338 158 Z"/>
+      <path d="M390 128 L338 158 A60 60 0 0 1 338 98 Z"/>
+      <path d="M390 128 L338 98 A60 60 0 0 1 390 68 Z"/>
+     </g>
+     <rect x="378" y="114" width="24" height="16" rx="4" fill="#fff1c9"/>
+     <rect x="380" y="116" width="20" height="5" rx="2" fill="#ffe08a"/>
+    </g>
+
+    <!-- iced tea glass -->
+    <g filter="url(#sh)">
+     <circle cx="92" cy="104" r="46" fill="#f8efe0" stroke="#e3d4bc" stroke-width="3"/>
+     <circle cx="92" cy="104" r="38" fill="#b86a2a" opacity=".85"/>
+     <circle cx="92" cy="104" r="38" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3"/>
+     <rect x="76" y="86" width="16" height="16" rx="3" fill="#fff" opacity=".55" transform="rotate(14 84 94)"/>
+     <rect x="96" y="104" width="15" height="15" rx="3" fill="#fff" opacity=".45" transform="rotate(-10 103 111)"/>
+     <circle cx="110" cy="84" r="15" fill="#f2d54b" stroke="#e1a73d" stroke-width="3"/>
+     <path d="M110 70v28M96 84h28M100 74l20 20M120 74l-20 20" stroke="#fff7c2" stroke-width="1.6"/>
+    </g>
+
+    <!-- main gumbo bowl -->
+    <g filter="url(#sh)">
+     <circle cx="236" cy="282" r="150" fill="url(#plate)" stroke="#e3d4bc" stroke-width="3"/>
+     <circle cx="236" cy="282" r="132" fill="none" stroke="#1d4538" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" opacity=".55"/>
+     <circle cx="236" cy="282" r="112" fill="#fffaf1" stroke="#eadbc1" stroke-width="2"/>
+     <circle cx="236" cy="282" r="98" fill="url(#roux)"/>
+     <!-- rice mound -->
+     <path d="M200 270c-6-26 20-44 42-38 20-12 50 6 44 30 16 14 2 42-22 38-14 16-46 12-52-6-18-2-26-16-12-24z" fill="#fbf6ea"/>
+     <g fill="#efe5d0"><circle cx="228" cy="262" r="2"/><circle cx="246" cy="250" r="2"/><circle cx="262" cy="268" r="2"/><circle cx="238" cy="284" r="2"/><circle cx="218" cy="280" r="2"/><circle cx="270" cy="286" r="2"/></g>
+     <!-- shrimp -->
+     <g fill="none" stroke-linecap="round">
+      <path d="M170 226c-14 10-10 30 6 32" stroke="#ee8a5b" stroke-width="14"/>
+      <path d="M170 226c-14 10-10 30 6 32" stroke="#f7b28c" stroke-width="5" stroke-dasharray="3 6"/>
+      <path d="M308 300c10 14 0 32-18 30" stroke="#ee8a5b" stroke-width="14"/>
+      <path d="M308 300c10 14 0 32-18 30" stroke="#f7b28c" stroke-width="5" stroke-dasharray="3 6"/>
+      <path d="M196 336c-16-2-26 14-16 26" stroke="#ee8a5b" stroke-width="13"/>
+      <path d="M196 336c-16-2-26 14-16 26" stroke="#f7b28c" stroke-width="5" stroke-dasharray="3 6"/>
+     </g>
+     <!-- andouille slices -->
+     <g><circle cx="300" cy="238" r="12" fill="#9b3a26"/><circle cx="300" cy="238" r="8" fill="#c0614a"/><circle cx="297" cy="235" r="1.6" fill="#f3d3c4"/><circle cx="303" cy="241" r="1.6" fill="#f3d3c4"/>
+        <circle cx="256" cy="352" r="12" fill="#9b3a26"/><circle cx="256" cy="352" r="8" fill="#c0614a"/><circle cx="253" cy="350" r="1.6" fill="#f3d3c4"/>
+        <circle cx="166" cy="296" r="11" fill="#9b3a26"/><circle cx="166" cy="296" r="7" fill="#c0614a"/></g>
+     <!-- okra -->
+     <g fill="#5d8a3a" stroke="#3f6a26" stroke-width="2"><circle cx="214" cy="214" r="9"/><circle cx="318" cy="268" r="8"/><circle cx="218" cy="356" r="8"/><circle cx="150" cy="258" r="7"/></g>
+     <g fill="#d9e8b4"><circle cx="214" cy="214" r="3"/><circle cx="318" cy="268" r="3"/><circle cx="218" cy="356" r="3"/><circle cx="150" cy="258" r="2.5"/></g>
+     <!-- green onion -->
+     <g fill="#8fbf5a"><circle cx="242" cy="244" r="3"/><circle cx="256" cy="258" r="2.6"/><circle cx="232" cy="272" r="2.6"/><circle cx="262" cy="280" r="3"/><circle cx="246" cy="292" r="2.4"/><circle cx="222" cy="252" r="2.4"/><circle cx="272" cy="252" r="2.2"/></g>
+     <!-- spoon -->
+     <g transform="rotate(38 380 400)"><rect x="372" y="300" width="14" height="150" rx="7" fill="#c9b79a"/><ellipse cx="379" cy="300" rx="22" ry="30" fill="#d8c8ac"/><ellipse cx="379" cy="302" rx="15" ry="22" fill="#e9dcc4"/></g>
+    </g>
+    <!-- steam -->
+    <g class="steam" fill="none" stroke="#fffaf1" stroke-width="4" stroke-linecap="round" opacity=".8">
+     <path d="M216 168c-10-12 10-20 0-34"/><path d="M240 162c-10-12 10-20 0-34"/><path d="M264 168c-10-12 10-20 0-34"/>
+    </g>
+    <!-- lemon wedge + hot sauce -->
+    <g filter="url(#sh)">
+     <path d="M74 400a44 44 0 0 1 82-18z" fill="#f2d54b" stroke="#e1a73d" stroke-width="4"/>
+     <path d="M84 398l26-30M100 404l20-30M118 404l14-26" stroke="#fff7c2" stroke-width="2"/>
+     <rect x="420" y="330" width="34" height="96" rx="12" fill="#a2402a"/>
+     <rect x="428" y="306" width="18" height="30" rx="5" fill="#2b1e15"/>
+     <rect x="424" y="356" width="26" height="40" rx="4" fill="#f6eedf"/>
+     <use href="#pepper" x="429" y="368" width="16" height="16" style="color:#a2402a"/>
+    </g>
+   </svg>
+  </div>
+ </div>
+ <div class="scallop" aria-hidden="true"></div>
+</section>
+
+<section class="menu sec" id="menu" aria-labelledby="menu-h">
+ <div class="wrap">
+  <p class="kicker">The menu</p>
+  <h2 id="menu-h">Cooked from scratch, priced plainly.</h2>
+  <p class="lede">Everything below is the full menu, written out so you can read it on your phone, copy it, or have it read aloud. Sales tax is added to the bill.</p>
+
+  <ul class="chips" aria-label="Jump to a menu section">
+   <li><a href="#m-starters">Starters</a></li><li><a href="#m-gumbo">Gumbo &amp; bowls</a></li><li><a href="#m-plates">Plates</a></li>
+   <li><a href="#m-sides">Sides</a></li><li><a href="#m-brunch">Weekend brunch</a></li><li><a href="#m-sweets">Sweets</a></li><li><a href="#m-drinks">Drinks</a></li>
+  </ul>
+
+  <div class="legend" role="note" aria-label="Dietary key">
+   <b>Key</b>
+   <span><abbr class="tag t-v" title="Vegetarian">V</abbr> Vegetarian</span>
+   <span><abbr class="tag t-vg" title="Vegan">VG</abbr> Vegan</span>
+   <span><abbr class="tag t-gf" title="Gluten-free">GF</abbr> Made without gluten</span>
+   <span><span class="tag t-hot" title="Spicy"><svg aria-hidden="true"><use href="#pepper"/></svg><span class="sr">Spicy</span></span> Has some heat</span>
+  </div>
+
+  <div class="mgrid">
+   <article class="card" id="m-starters" aria-labelledby="h-starters">
+    <h3 id="h-starters"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><circle cx="13" cy="15" r="6" fill="#d58a3a"/><circle cx="22" cy="13" r="5" fill="#e7a54c"/><circle cx="21" cy="23" r="6" fill="#c97a2f"/><circle cx="13" cy="15" r="2" fill="#f7cf8a"/></svg>Starters</h3>
+    <ul class="items">
+     <li><div class="row"><span class="n">Fried green tomatoes <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$10</span></div><p>Cornmeal crust, Creole remoulade, pickled shallot.</p></li>
+     <li><div class="row"><span class="n">Crab &amp; corn hushpuppies</span><i class="lead"></i><span class="p">$12</span></div><p>Gulf blue crab, sweet corn, whipped honey butter. Six to an order.</p></li>
+     <li><div class="row"><span class="n">Boudin balls <span class="tag t-hot" title="Spicy"><svg aria-hidden="true"><use href="#pepper"/></svg><span class="sr">Spicy</span></span></span><i class="lead"></i><span class="p">$11</span></div><p>Pork and rice boudin, crisp outside, Creole mustard for dipping.</p></li>
+     <li><div class="row"><span class="n">Smoked Gulf fish dip</span><i class="lead"></i><span class="p">$12</span></div><p>Lemon, dill, pickled jalapeño, saltine crackers.</p></li>
+     <li><div class="row"><span class="n">Pimento cheese board <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$9</span></div><p>House pimento cheese, bread-and-butter pickles, toasted sourdough.</p></li>
+    </ul>
+   </article>
+
+   <article class="card" id="m-gumbo" aria-labelledby="h-gumbo">
+    <h3 id="h-gumbo"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><circle cx="18" cy="18" r="11" fill="#7a3f1d"/><path d="M13 17c0-5 9-6 10 0 2 3-1 6-5 5-3 2-7 0-5-5z" fill="#fbf6ea"/><circle cx="23" cy="22" r="2" fill="#8fbf5a"/></svg>Gumbo &amp; bowls</h3>
+    <p class="note">Our roux is cooked low and slow every morning until it is the color of dark chocolate. Cup or bowl, served over rice.</p>
+    <ul class="items">
+     <li><div class="row"><span class="n">Chicken &amp; andouille gumbo <span class="tag t-hot" title="Spicy"><svg aria-hidden="true"><use href="#pepper"/></svg><span class="sr">Spicy</span></span></span><i class="lead"></i><span class="p">$8 / $14</span></div><p>Dark roux, smoked andouille, pulled chicken, green onion.</p></li>
+     <li><div class="row"><span class="n">Gulf seafood gumbo</span><i class="lead"></i><span class="p">$10 / $18</span></div><p>Gulf shrimp, blue crab, okra, a dash of filé.</p></li>
+     <li><div class="row"><span class="n">Red beans &amp; rice <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$13</span></div><p>Slow-cooked red beans, smoked sausage, white rice. Ask for it without sausage.</p></li>
+     <li><div class="row"><span class="n">Okra &amp; tomato stew <abbr class="tag t-vg" title="Vegan">VG</abbr> <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$13</span></div><p>Stewed okra, tomatoes, corn and peppers over brown rice.</p></li>
+    </ul>
+   </article>
+
+   <article class="card wide" id="m-plates" aria-labelledby="h-plates">
+    <h3 id="h-plates"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><circle cx="18" cy="18" r="12" fill="#fffaf1" stroke="#e3d4bc"/><path d="M11 20c3-6 11-7 15-2-3 5-11 6-15 2z" fill="#a2402a"/><circle cx="14" cy="14" r="2.5" fill="#f2d54b"/></svg>Plates</h3>
+    <p class="note">Served with one side unless noted. Swap or add a side from the list below.</p>
+    <ul class="items cols2">
+     <li><div class="row"><span class="n">Blackened redfish <abbr class="tag t-gf" title="Gluten-free">GF</abbr> <span class="tag t-hot" title="Spicy"><svg aria-hidden="true"><use href="#pepper"/></svg><span class="sr">Spicy</span></span></span><i class="lead"></i><span class="p">$26</span></div><p>Cast-iron seared Gulf redfish, brown butter, charred lemon, dirty rice.</p></li>
+     <li><div class="row"><span class="n">Shrimp &amp; grits</span><i class="lead"></i><span class="p">$22</span></div><p>Gulf shrimp, stone-ground cheese grits, tasso ham gravy. No side needed.</p></li>
+     <li><div class="row"><span class="n">Buttermilk fried chicken</span><i class="lead"></i><span class="p">$21</span></div><p>Half bird brined overnight, hot honey, house pickles.</p></li>
+     <li><div class="row"><span class="n">Catfish po'boy</span><i class="lead"></i><span class="p">$16</span></div><p>Cornmeal-fried catfish, shredded lettuce, tomato, remoulade, toasted French bread.</p></li>
+     <li><div class="row"><span class="n">Smothered pork chop</span><i class="lead"></i><span class="p">$23</span></div><p>Bone-in chop, slow onion gravy, mashed potatoes.</p></li>
+     <li><div class="row"><span class="n">Crawfish étouffée <span class="tag t-hot" title="Spicy"><svg aria-hidden="true"><use href="#pepper"/></svg><span class="sr">Spicy</span></span></span><i class="lead"></i><span class="p">$24</span></div><p>Crawfish tails, blond roux, the holy trinity, white rice. Spring season only.</p></li>
+     <li><div class="row"><span class="n">Blackened cauliflower <abbr class="tag t-vg" title="Vegan">VG</abbr> <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$18</span></div><p>Thick-cut cauliflower steak, collard green pesto, pecans, brown rice.</p></li>
+     <li><div class="row"><span class="n">Bell burger</span><i class="lead"></i><span class="p">$17</span></div><p>Two smashed patties, pimento cheese, pickles, Creole mustard, fries.</p></li>
+    </ul>
+   </article>
+
+   <article class="card" id="m-sides" aria-labelledby="h-sides">
+    <h3 id="h-sides"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><circle cx="18" cy="18" r="10" fill="#4f7d34"/><path d="M12 16c3 2 6-3 9 0s3 4 4 3" stroke="#9cc56a" stroke-width="2" fill="none"/></svg>Sides</h3>
+    <ul class="items">
+     <li><div class="row"><span class="n">Braised collard greens <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$6</span></div></li>
+     <li><div class="row"><span class="n">Baked mac &amp; cheese <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$7</span></div></li>
+     <li><div class="row"><span class="n">Skillet cornbread, honey butter <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$6</span></div></li>
+     <li><div class="row"><span class="n">Dirty rice</span><i class="lead"></i><span class="p">$6</span></div></li>
+     <li><div class="row"><span class="n">Fried okra <abbr class="tag t-vg" title="Vegan">VG</abbr></span><i class="lead"></i><span class="p">$6</span></div></li>
+     <li><div class="row"><span class="n">Cajun fries <abbr class="tag t-vg" title="Vegan">VG</abbr></span><i class="lead"></i><span class="p">$5</span></div></li>
+    </ul>
+   </article>
+
+   <article class="card" id="m-brunch" aria-labelledby="h-brunch">
+    <h3 id="h-brunch"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><circle cx="18" cy="18" r="10" fill="#fffaf1"/><circle cx="18" cy="18" r="5" fill="#f2b632"/><path d="M6 10l3 2M30 10l-3 2M18 3v3" stroke="#e1a73d" stroke-width="2" stroke-linecap="round"/></svg>Weekend brunch</h3>
+    <p class="note">Saturday and Sunday, 10 am to 2 pm.</p>
+    <ul class="items">
+     <li><div class="row"><span class="n">Beignets <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$8</span></div><p>Three, hot from the fryer, buried in powdered sugar.</p></li>
+     <li><div class="row"><span class="n">Chicken &amp; waffles</span><i class="lead"></i><span class="p">$19</span></div><p>Fried chicken thigh, buttermilk waffle, cane syrup, hot honey.</p></li>
+     <li><div class="row"><span class="n">Crab cake Benedict</span><i class="lead"></i><span class="p">$21</span></div><p>Two Gulf crab cakes, poached eggs, Creole hollandaise, cheese grits.</p></li>
+     <li><div class="row"><span class="n">Grits bowl <abbr class="tag t-v" title="Vegetarian">V</abbr> <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$14</span></div><p>Cheese grits, two eggs any style, sautéed greens, tomato jam.</p></li>
+    </ul>
+   </article>
+
+   <article class="card" id="m-sweets" aria-labelledby="h-sweets">
+    <h3 id="h-sweets"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><path d="M8 22 18 8l10 14z" fill="#c98b2c"/><path d="M8 22h20v4H8z" fill="#7a3f1d"/><circle cx="15" cy="17" r="1.6" fill="#7a3f1d"/><circle cx="20" cy="15" r="1.6" fill="#7a3f1d"/><circle cx="19" cy="19" r="1.6" fill="#7a3f1d"/></svg>Sweets</h3>
+    <ul class="items">
+     <li><div class="row"><span class="n">Bread pudding <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$9</span></div><p>Warm, with bourbon caramel sauce.</p></li>
+     <li><div class="row"><span class="n">Banana pudding <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$8</span></div><p>Vanilla custard, fresh banana, wafer cookies, whipped cream.</p></li>
+     <li><div class="row"><span class="n">Pecan pie <abbr class="tag t-v" title="Vegetarian">V</abbr></span><i class="lead"></i><span class="p">$9</span></div><p>Texas pecans, brown butter crust. Add a scoop of vanilla for $2.</p></li>
+     <li><div class="row"><span class="n">Seasonal sorbet <abbr class="tag t-vg" title="Vegan">VG</abbr> <abbr class="tag t-gf" title="Gluten-free">GF</abbr></span><i class="lead"></i><span class="p">$7</span></div><p>Ask your server what is in the freezer this week.</p></li>
+    </ul>
+   </article>
+
+   <article class="card" id="m-drinks" aria-labelledby="h-drinks">
+    <h3 id="h-drinks"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#f3e3c4"/><path d="M11 9h14l-2 18H13z" fill="#e8b766"/><path d="M11 9h14l-.6 5H11.6z" fill="#fffaf1" opacity=".7"/><circle cx="24" cy="10" r="4" fill="#f2d54b" stroke="#e1a73d"/></svg>Drinks</h3>
+    <ul class="items">
+     <li><div class="row"><span class="n">Sweet or unsweet iced tea</span><i class="lead"></i><span class="p">$4</span></div><p>Free refills.</p></li>
+     <li><div class="row"><span class="n">Fresh-squeezed lemonade</span><i class="lead"></i><span class="p">$5</span></div></li>
+     <li><div class="row"><span class="n">Chicory coffee</span><i class="lead"></i><span class="p">$4</span></div><p>Hot, or iced with milk.</p></li>
+     <li><div class="row"><span class="n">Local draft beer</span><i class="lead"></i><span class="p">$7</span></div><p>Four Texas taps that rotate. Ask what is pouring.</p></li>
+     <li><div class="row"><span class="n">House red or white wine</span><i class="lead"></i><span class="p">$10</span></div></li>
+     <li><div class="row"><span class="n">The Bell Ringer</span><i class="lead"></i><span class="p">$13</span></div><p>Rye, aromatic bitters, demerara, lemon peel.</p></li>
+    </ul>
+   </article>
+  </div>
+
+  <p class="allergy"><strong>Allergies:</strong> tell your server before you order. Fried items share one fryer, and pecans and shellfish are used throughout the kitchen, so we cannot promise any dish is free of traces. Menu and prices can change with the season.</p>
+ </div>
+</section>
+
+<section class="about sec" id="about" aria-labelledby="about-h">
+ <div class="wrap">
+  <div aria-hidden="true">
+   <svg viewBox="0 0 460 400" style="display:block;width:100%;height:auto">
+    <rect x="10" y="10" width="440" height="380" rx="30" fill="#1d4538"/>
+    <g opacity=".14" stroke="#f6eedf" stroke-width="2" fill="none">
+     <path d="M10 300c60-30 110 30 170 0s110 30 170 0 70-20 100-10"/><path d="M10 330c60-30 110 30 170 0s110 30 170 0 70-20 100-10"/><path d="M10 360c60-30 110 30 170 0s110 30 170 0 70-20 100-10"/>
+    </g>
+    <!-- cypress/bayou silhouettes -->
+    <g fill="#14332a"><path d="M52 300c4-50 6-110 14-150 8 40 10 100 14 150z"/><path d="M88 300c3-40 6-80 11-110 6 30 8 70 11 110z"/><path d="M386 300c4-60 6-120 14-160 8 40 10 110 14 160z"/></g>
+    <!-- bell hanging -->
+    <path d="M230 40v40" stroke="#e1a73d" stroke-width="5"/>
+    <path d="M150 80h160" stroke="#c98b2c" stroke-width="8" stroke-linecap="round"/>
+    <path d="M230 92c34 0 56 26 56 64v42l18 26H156l18-26v-42c0-38 22-64 56-64z" fill="#e1a73d"/>
+    <path d="M190 132c8-16 20-24 34-26" stroke="#fff3d0" stroke-width="7" stroke-linecap="round" fill="none" opacity=".8"/>
+    <path d="M160 222h140" stroke="#c98b2c" stroke-width="6"/>
+    <circle cx="230" cy="240" r="15" fill="#c98b2c"/>
+    <!-- sound arcs -->
+    <g fill="none" stroke="#f6eedf" stroke-width="4" stroke-linecap="round" opacity=".7"><path d="M128 150c-12 18-12 42 0 60"/><path d="M110 138c-18 26-18 58 0 84"/><path d="M332 150c12 18 12 42 0 60"/><path d="M350 138c18 26 18 58 0 84"/></g>
+    <!-- plate ticket -->
+    <g transform="rotate(-6 300 330)"><rect x="250" y="292" width="150" height="66" rx="8" fill="#fffaf1"/><path d="M266 312h96M266 326h74M266 340h86" stroke="#c7b597" stroke-width="5" stroke-linecap="round"/><text x="378" y="314" font-family="Rockwell,Georgia,serif" font-size="14" font-weight="700" fill="#a2402a">#12</text></g>
+    <text x="40" y="364" font-family="Rockwell,Georgia,serif" font-weight="700" font-size="22" fill="#f6eedf">Order up.</text>
+   </svg>
+  </div>
+  <div>
+   <p class="kicker">About the kitchen</p>
+   <h2 id="about-h">Named for the bayou out back and the bell by the pass.</h2>
+   <p>Bayou &amp; Bell is a small neighborhood kitchen cooking the food of the Gulf Coast: Creole and Cajun staples, Texas barbecue habits and Southern Sunday-dinner sides. When a plate is ready, the cook rings the brass bell, and that sound is most of what our kitchen is about.</p>
+   <p>We keep the menu short so we can make it properly. Stocks, roux, pickles and dressings are made in house. Seafood comes from Gulf suppliers when it is in season, and the menu changes when it is not.</p>
+   <div class="facts">
+    <div class="fact"><b>Made daily</b><span>Roux, stocks, pickles, cornbread and dressings.</span></div>
+    <div class="fact"><b>Families welcome</b><span>High chairs, a short kids' list and crayons on request.</span></div>
+    <div class="fact"><b>Easy to reach</b><span>Step-free entrance and an accessible restroom.</span></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="hours sec" id="hours" aria-labelledby="hours-h">
+ <div class="wrap">
+  <div>
+   <p class="kicker">Hours</p>
+   <h2 id="hours-h">Open six days a week.</h2>
+   <p class="lede">The kitchen takes its last order 30 minutes before close. Holiday hours are posted here first, so check back before a big day.</p>
+   <div class="hh">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="19" fill="#e1a73d"/><path d="M12 12h16l-3 18h-10z" fill="#fffaf1"/><path d="M13 16h14" stroke="#c98b2c" stroke-width="2"/><circle cx="26" cy="12" r="3.5" fill="#a2402a"/></svg>
+    <div><b>Happy hour, Tuesday to Friday, 3 to 6 pm</b><span>$2 off draft beer and house wine, and hushpuppies for $8.</span></div>
+   </div>
+  </div>
+  <div>
+   <table aria-describedby="hours-h">
+    <caption class="sr">Weekly opening hours</caption>
+    <tbody>
+     <tr data-d="1"><th scope="row">Monday</th><td>Closed</td></tr>
+     <tr data-d="2"><th scope="row">Tuesday</th><td>11 am to 9 pm</td></tr>
+     <tr data-d="3"><th scope="row">Wednesday</th><td>11 am to 9 pm</td></tr>
+     <tr data-d="4"><th scope="row">Thursday</th><td>11 am to 9 pm</td></tr>
+     <tr data-d="5"><th scope="row">Friday</th><td>11 am to 10 pm</td></tr>
+     <tr data-d="6"><th scope="row">Saturday</th><td>10 am to 10 pm<small>Brunch 10 am to 2 pm</small></td></tr>
+     <tr data-d="0"><th scope="row">Sunday</th><td>10 am to 3 pm<small>Brunch all day</small></td></tr>
+    </tbody>
+   </table>
+  </div>
+ </div>
+</section>
+
+<section class="find sec" id="find-us" aria-labelledby="find-h">
+ <div class="wrap">
+  <div class="map">
+   <svg viewBox="0 0 640 440" role="img" aria-labelledby="map-t">
+    <title id="map-t">Illustrated street map of the area around the restaurant, with a pin on Sample Street next to a small park and the bayou trail</title>
+    <rect width="640" height="440" fill="#efe5d2"/>
+    <!-- blocks -->
+    <g fill="#e6d8bf">
+     <rect x="20" y="20" width="150" height="100" rx="8"/><rect x="210" y="20" width="170" height="100" rx="8"/><rect x="420" y="20" width="200" height="100" rx="8"/>
+     <rect x="20" y="160" width="150" height="110" rx="8"/><rect x="420" y="160" width="200" height="110" rx="8"/>
+     <rect x="20" y="310" width="150" height="60" rx="8"/><rect x="420" y="310" width="200" height="50" rx="8"/>
+    </g>
+    <!-- park -->
+    <rect x="210" y="160" width="170" height="110" rx="8" fill="#cfe0bd"/>
+    <g fill="#9cbf7f"><circle cx="240" cy="190" r="13"/><circle cx="268" cy="240" r="15"/><circle cx="340" cy="186" r="12"/><circle cx="352" cy="244" r="14"/><circle cx="300" cy="206" r="10"/></g>
+    <path d="M210 215 Q300 200 380 230" stroke="#f6eedf" stroke-width="5" fill="none" stroke-dasharray="1 9" stroke-linecap="round"/>
+    <!-- bayou -->
+    <path d="M-10 404 C 90 360 170 420 280 392 S 470 352 650 392 L650 450 L-10 450Z" fill="#9cc3c0"/>
+    <path d="M-10 404 C 90 360 170 420 280 392 S 470 352 650 392" fill="none" stroke="#7aa9a5" stroke-width="3"/>
+    <path d="M30 424c30-8 50 6 80 0M330 418c30-8 50 6 80 0M520 412c30-8 50 6 80 0" stroke="#e9f3f1" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- streets -->
+    <g stroke="#fffaf1" stroke-width="22" stroke-linecap="round">
+     <path d="M0 140H640"/><path d="M0 290H640"/><path d="M190 0V380"/><path d="M400 0V380"/>
+    </g>
+    <g stroke="#e1a73d" stroke-width="2" stroke-dasharray="10 10"><path d="M0 140H640"/><path d="M190 0V380"/></g>
+    <!-- parking lot -->
+    <rect x="440" y="176" width="70" height="80" rx="6" fill="#d9ccb4"/>
+    <g stroke="#fffaf1" stroke-width="2"><path d="M440 196h30M440 216h30M440 236h30"/></g>
+    <circle cx="490" cy="216" r="14" fill="#2f5d86"/><text x="490" y="222" text-anchor="middle" font-family="Avenir Next,Arial,sans-serif" font-weight="700" font-size="17" fill="#fff">P</text>
+    <!-- restaurant footprint -->
+    <rect x="520" y="176" width="86" height="80" rx="8" fill="#a2402a"/>
+    <!-- labels -->
+    <g font-family="Avenir Next,Avenir,Arial,sans-serif" font-weight="700" fill="#6a5646" font-size="13" letter-spacing="1.5">
+     <text x="28" y="134">SAMPLE ST</text>
+     <text x="28" y="284">MAIN AVE</text>
+     <text x="184" y="64" transform="rotate(-90 184 64)" text-anchor="middle">ELM ST</text>
+     <text x="394" y="64" transform="rotate(-90 394 64)" text-anchor="middle">OAK ST</text>
+     <text x="295" y="262" text-anchor="middle" fill="#4c6f3a">LITTLE PARK</text>
+     <text x="560" y="428" text-anchor="middle" fill="#3f6f6b">BAYOU TRAIL</text>
+    </g>
+    <!-- pin -->
+    <g transform="translate(563 152)">
+     <ellipse cx="0" cy="58" rx="18" ry="6" fill="#2b1e15" opacity=".25"/>
+     <path d="M0 58S-30 26-30 4A30 30 0 0 1 30 4C30 26 0 58 0 58z" fill="#1d4538" stroke="#fffaf1" stroke-width="3"/>
+     <use href="#bell" x="-17" y="-13" width="34" height="34"/>
+    </g>
+    <g transform="translate(470 92)">
+     <rect x="0" y="0" width="150" height="32" rx="16" fill="#2b1e15"/>
+     <text x="75" y="21" text-anchor="middle" font-family="Rockwell,Georgia,serif" font-weight="700" font-size="14" fill="#fffaf1">Bayou &amp; Bell</text>
+    </g>
+   </svg>
+  </div>
+  <div>
+   <p class="kicker">Find us</p>
+   <h2 id="find-h">In the Heights, by the bayou trail.</h2>
+   <p class="addr">123 Sample Street<br>Houston Heights, Houston, TX<small>Demo address. This is a fictional business.</small></p>
+   <dl>
+    <div><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16V8h3a2.5 2.5 0 0 1 0 5h-3"/></svg><dt class="sr">Parking</dt><dd><strong style="color:var(--ink)">Parking:</strong> free lot next door, plus street parking on Sample Street after 5 pm.</dd></div>
+    <div><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9 8 6H6M15 9l-2-3h2"/></svg><dt class="sr">Bikes and walking</dt><dd><strong style="color:var(--ink)">On foot or bike:</strong> two minutes from the bayou trail, with a bike rack by the door.</dd></div>
+    <div><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-phone"/></svg><dt class="sr">Phone</dt><dd><strong style="color:var(--ink)">Phone:</strong> <a href="tel:+17135550142">(713) 555-0142</a></dd></div>
+   </dl>
+   <div class="cta">
+    <a class="btn lg b-green" href="https://www.google.com/maps/search/?api=1&amp;query=Houston+Heights%2C+Houston%2C+TX" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Get directions</a>
+    <a class="btn lg b-line" href="tel:+17135550142"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call ahead</a>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="events" id="events" aria-labelledby="events-h">
+ <div class="wrap">
+  <svg class="badge" viewBox="0 0 110 110" aria-hidden="true">
+   <circle cx="55" cy="55" r="52" fill="none" stroke="#f6eedf" stroke-width="2" stroke-dasharray="3 6"/>
+   <circle cx="55" cy="55" r="42" fill="#86331f"/>
+   <rect x="33" y="40" width="44" height="32" rx="4" fill="#e1a73d"/>
+   <path d="M33 50h44" stroke="#c98b2c" stroke-width="3"/>
+   <rect x="38" y="56" width="12" height="10" rx="2" fill="#fffaf1"/><rect x="54" y="56" width="18" height="10" rx="2" fill="#fffaf1"/>
+   <path d="M44 34v10M66 34v10" stroke="#fffaf1" stroke-width="4" stroke-linecap="round"/>
+  </svg>
+  <div>
+   <h2 id="events-h">Private events and catering</h2>
+   <p>The back room seats up to 30 for birthdays, rehearsal dinners and work lunches. Catering trays of gumbo, red beans and rice, fried chicken and sides feed groups from 10 to 150. Tell us the date and headcount and we will reply with options.</p>
+  </div>
+  <div class="cta">
+   <a class="btn lg b-gold" href="mailto:hello@example.com?subject=Event%20or%20catering%20enquiry&amp;body=Date%3A%0AHeadcount%3A%0AEvent%20or%20catering%3A%0ABest%20phone%20number%3A"><svg aria-hidden="true"><use href="#i-mail"/></svg>Email an inquiry</a>
+   <a class="btn lg b-cream" href="tel:+17135550142"><svg aria-hidden="true"><use href="#i-phone"/></svg>Call to plan</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <div>
+   <a class="logo" href="#top" aria-label="Bayou and Bell Kitchen, back to top">
+    <svg aria-hidden="true"><use href="#bell"/></svg>
+    <span><b>Bayou &amp; Bell</b><small>Kitchen</small></span>
+   </a>
+   <p>Gulf Coast cooking and Southern comfort in Houston Heights.</p>
+   <div class="social">
+    <a href="#" aria-label="Instagram (demo link)"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="#fff"/></svg></a>
+    <a href="#" aria-label="Facebook (demo link)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+    <a href="#" aria-label="TikTok (demo link)"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.8 2.4 4.6 5 5"/></svg></a>
+   </div>
+  </div>
+  <div>
+   <h3>Hours</h3>
+   <p>Mon: closed</p>
+   <p>Tue to Thu: 11 am to 9 pm</p>
+   <p>Fri: 11 am to 10 pm</p>
+   <p>Sat: 10 am to 10 pm</p>
+   <p>Sun: 10 am to 3 pm</p>
+  </div>
+  <div>
+   <h3>Visit</h3>
+   <p>123 Sample Street<br>Houston Heights (demo address)</p>
+   <p class="flinks"><a href="#find-us">Map and parking</a></p>
+  </div>
+  <div>
+   <h3>Contact</h3>
+   <p class="flinks"><a href="tel:+17135550142">(713) 555-0142</a></p>
+   <p class="flinks"><a href="mailto:hello@example.com">hello@example.com</a></p>
+   <p class="flinks"><a href="#events">Events and catering</a></p>
+  </div>
+ </div>
+ <div class="fine">
+  <div class="wrap">
+   <span>Bayou &amp; Bell Kitchen is a fictional business. Phone, email and address are placeholders.</span>
+   <span>Concept site by Site Ready Studio. <a href="/quote/?ref=demo-restaurant&amp;industry=restaurants-cafes">Get one like this</a></span>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ var hrs={0:[10,15,"10 am to 3 pm","Brunch all day"],1:null,2:[11,21,"11 am to 9 pm","Happy hour 3 to 6 pm"],3:[11,21,"11 am to 9 pm","Happy hour 3 to 6 pm"],4:[11,21,"11 am to 9 pm","Happy hour 3 to 6 pm"],5:[11,22,"11 am to 10 pm","Happy hour 3 to 6 pm"],6:[10,22,"10 am to 10 pm","Brunch 10 am to 2 pm"]};
+ var names=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+ var now=new Date(),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,t=hrs[d];
+ var box=document.getElementById("today"),line=document.getElementById("today-line"),sub=document.getElementById("today-sub");
+ var row=document.querySelector('tr[data-d="'+d+'"]');if(row)row.className="is-today";
+ if(!t){box.className="today closed";line.textContent="Closed today ("+names[d]+")";sub.textContent="Back Tuesday at 11 am. Hours for the week are below.";return;}
+ if(h>=t[0]&&h<t[1]){line.textContent="Open now until "+t[2].split(" to ")[1];}
+ else{box.className="today closed";line.textContent=(h<t[0]?"Opens today at "+t[2].split(" to ")[0]:"Closed for the day");}
+ sub.textContent="Today, "+names[d]+": "+t[2]+". "+t[3]+".";
+})();
+</script>
+</body>
+</html>

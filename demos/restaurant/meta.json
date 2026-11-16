@@ -1,0 +1,13 @@
+{
+  "slug": "restaurant",
+  "business": "Bayou & Bell Kitchen",
+  "kind": "Restaurant concept",
+  "industry": "restaurants-cafes",
+  "summary": "A one-page site for a fictional Gulf Coast and Southern kitchen in Houston Heights, built so a hungry customer on a phone can read the menu, check today's hours and call or get directions in one tap.",
+  "highlights": [
+    "Full menu written as real text with prices and dietary markers, not a photo or PDF",
+    "Shows whether the kitchen is open today and highlights today in the weekly hours",
+    "Call and Directions buttons stay pinned at the top of every screen",
+    "Map, parking note and a private events and catering inquiry that opens an email"
+  ]
+}
