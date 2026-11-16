@@ -157,10 +157,10 @@ footer{padding:0 0 120px;color:var(--dim);font-size:14px;text-align:center}
   <p class="sub">Stated up front. If your business needs something different, you get a written quote before any work starts.</p>
   <div class="grid g3">
     <div class="card glass price best"><span class="tag g" id="launchTag">Launch price</span><b id="p1"></b><small id="p1s"></small><ul><li>One to five pages</li><li>Phone-first design</li><li>Hours, map, contact, social links</li><li>Two rounds of changes</li></ul><a class="btn" data-pay="deposit" href="#quote">Start with a deposit</a></div>
-    <div class="card glass price"><span class="tag">Larger sites</span><b id="p2"></b><small>starting price, quoted per project</small><ul><li>More pages or sections</li><li>Full menus, galleries, service lists</li><li>Quote and booking-request forms</li><li>Three rounds of changes</li></ul><a class="btn ghost" href="#quote">Request a quote</a></div>
-    <div class="card glass price"><span class="tag">Care plan</span><b id="p3"></b><small>per month, cancel any time</small><ul><li>Text and photo updates on request</li><li>Hours and holiday changes</li><li>Monthly check that everything works</li><li>Help with your domain and hosting</li></ul><a class="btn ghost" data-pay="care" href="#quote">Add the care plan</a></div>
+    <div class="card glass price"><span class="tag">Larger sites</span><b id="p2"></b><small>quoted per project, before any work starts</small><ul><li>More pages or sections</li><li>Full menus, galleries, service lists</li><li>Quote and booking-request forms</li><li>Three rounds of changes</li></ul><a class="btn ghost" href="#quote">Request a quote</a></div>
+    <div class="card glass price"><span class="tag">Care plan</span><b id="p3"></b><small>per month, cancel any time</small><ul><li>Hosting included</li><li>Text and photo updates on request</li><li>Hours and holiday changes</li><li>Monthly check that everything works</li><li>Help with your domain and hosting</li></ul><a class="btn ghost" data-pay="care" href="#quote">Add the care plan</a></div>
   </div>
-  <p style="color:var(--dim);font-size:14.5px;margin-top:20px">Not included: your domain name and hosting fees (usually a few dollars a month, paid by you to the provider), online stores with checkout, and custom software.</p>
+  <p style="color:var(--dim);font-size:14.5px;margin-top:20px">Not included: your domain name (about $12 a year, bought in your own name), online stores with checkout, and custom software. Hosting is included with the care plan; without it, you host the finished files wherever you like.</p>
   <h2 style="margin-top:60px;font-size:28px">Questions</h2>
   <div style="margin-top:18px">
   <details class="glass"><summary>Do I need to know anything technical?</summary><p>No. You send words and photos. I handle the rest and walk you through the two things only you can do: buying your domain and choosing hosting, both in your own name.</p></details>
@@ -196,7 +196,7 @@ footer{padding:0 0 120px;color:var(--dim);font-size:14px;text-align:center}
 </section>
 </main>
 
-<footer><div class="wrap">&copy; <span id="yr"></span> <span class="studio"></span> &middot; <span class="city"></span></div></footer>
+<footer><div class="wrap">&copy; <span id="yr"></span> <span class="studio"></span> <span class="tagline"></span> &middot; <span class="city"></span> &middot; <a href="#about">About</a><span id="fmail"></span><br><span style="display:inline-block;margin-top:8px">Got an email from me and not interested? Reply "no thanks" and I won't write again.</span></div></footer>
 
 <script src="config.js"></script>
 <script>
@@ -213,12 +213,13 @@ document.title=S.studioName+" "+(S.tagline||"")+" | Websites for small businesse
 all(".owner",e=>e.textContent=S.ownerName);all(".city",e=>e.textContent=S.city);all(".studio",e=>e.textContent=S.studioName);all(".tagline",e=>e.textContent=S.tagline||"");
 const P=S.prices,L=S.showLaunchPrice;$("#s1").textContent=usd(L?P.launch:P.standard);
 $("#p1").textContent=usd(L?P.launch:P.standard);$("#p1s").textContent=L?"simple site, regular price "+usd(P.standard):"simple site, one-time";if(!L)$("#launchTag").textContent="Simple site";
-$("#p2").textContent=usd(P.larger)+"+";$("#p3").textContent=usd(P.care);
+$("#p2").textContent=P.larger?usd(P.larger)+"+":"Custom";$("#p3").textContent=usd(P.care);
 const F=[["Works on every phone","Most customers find you on a phone. Every page is built and tested for a small screen first.",'<rect x="7" y="2" width="10" height="20" rx="2.500"/><path d="M11 18h2"/>'],["The basics, done right","What you sell, hours, address with a map, and phone and email that work with one tap.",'<path d="M5 12l5 5L20 7"/>'],["Found on Google","Real text instead of images of text, clean titles, and the details Google uses to show you correctly.",'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.500-4.500"/>'],["Yours to keep","Your domain and hosting stay in your name. You get the finished files. No lock-in.",'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0"/>'],["Fast to launch","A simple site is usually ready to review within a week of getting your photos and details.",'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>'],["Looked after","With the care plan, you text a change or a new photo and it's updated for you.",'<path d="M12 21s-7-4.500-7-10a4 4 0 017-2.500A4 4 0 0119 11c0 5.500-7 10-7 10z"/>']];
 $("#feat").innerHTML=F.map(f=>`<div class="card glass"><div class="ico"><svg viewBox="0 0 24 24">${f[2]}</svg></div><h3>${f[0]}</h3><p>${f[1]}</p></div>`).join("");
 $("#samples").innerHTML=S.samples.map(s=>`<div class="sample glass"><div class="mac glass" style="--h:${s.hue}"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><div class="h"></div><div class="l"></div><div class="l s"></div><div class="row"><div></div><div></div><div></div></div></div></div><div class="meta"><span class="tag">${s.kind}</span><h3 style="margin-top:12px">${s.name}</h3><p style="margin:0;color:var(--mut);font-size:15px">${s.note}</p></div></div>`).join("");
 if(M){$("#m1").textContent=usd(M.starter);$("#m2").textContent=usd(M.growth);$("#m3").textContent=usd(M.full);if(M.fiverrGig){const g=$("#gigBtn");g.href=M.fiverrGig;g.target="_blank";g.rel="noopener";g.textContent="Order a one-week pack on Fiverr"}}else{$("#v-social").remove()}
 all("[data-pay]",a=>{const u=S.stripe[a.dataset.pay];if(u){a.href=u;a.target="_blank";a.rel="noopener"}});
+if(S.contactEmail)$("#fmail").innerHTML=` &middot; <a href="mailto:${S.contactEmail}">${S.contactEmail}</a>`;
 if(S.contactEmail)$("#mail").innerHTML=`Prefer email? <a href="mailto:${S.contactEmail}">${S.contactEmail}</a>`;
 $("#qform").addEventListener("submit",e=>{e.preventDefault();const f=new FormData(e.target);
  if(!S.contactEmail){$("#formNote").textContent="Preview only: the contact address is not set yet, so nothing was sent.";return}

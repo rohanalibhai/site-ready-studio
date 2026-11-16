@@ -8,7 +8,7 @@ window.SITE = {
   prices: {
     launch: 500,
     standard: 750,
-    larger: 1500,
+    larger: 0,
     care: 49
   },
   showLaunchPrice: true,
