@@ -13,8 +13,8 @@ window.SITE = {
   },
   showLaunchPrice: true,
   stripe: {
-    deposit: "",
-    care: ""
+    deposit: "https://buy.stripe.com/eVq6oA09U6oY348e3qbQY00",
+    care: "https://buy.stripe.com/8x29AMf4OdRqcEIbVibQY01"
   },
   social: {
     show: true,
