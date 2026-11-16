@@ -1,0 +1,24 @@
+window.SITE = {
+  ownerName: "Rohan Alibhai",
+  studioName: "Site Ready",
+  tagline: "Studio",
+  city: "Houston, Texas",
+  contactEmail: "",
+  phone: "",
+  prices: {
+    launch: 500,
+    standard: 750,
+    larger: 1500,
+    care: 49
+  },
+  showLaunchPrice: true,
+  stripe: {
+    deposit: "",
+    care: ""
+  },
+  samples: [
+    { name: "Neighborhood restaurant", kind: "concept", note: "Menu as real text, hours, map, one-tap call.", hue: 22 },
+    { name: "Boutique and gift shop", kind: "concept", note: "What's in store, hours, directions, Instagram feed link.", hue: 212 },
+    { name: "Local service business", kind: "concept", note: "Services, service area, reviews link, request-a-quote form.", hue: 160 }
+  ]
+};

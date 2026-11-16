@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Websites for small businesses</title>
+<meta name="description" content="Clear, fast websites for local businesses, built and looked after by one person at a flat price.">
+<meta name="theme-color" content="#070b16">
+<style>
+:root{--text:#eef3fb;--mut:#a6b3c9;--dim:#74819a;--acc:#9dbcf2;--acc2:#9dbcf2;--ok:#8fd3b6;--line:rgba(255,255,255,.11);--line2:rgba(255,255,255,.18);--r:14px;
+ --grad:#eef3fb;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+*{box-sizing:border-box}html,body{margin:0}
+body{color:var(--text);font:16px/1.55 -apple-system,"SF Pro Text","Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;
+ background:radial-gradient(1100px 700px at 8% -10%,rgba(72,116,196,.30),transparent 64%),radial-gradient(900px 700px at 100% 0%,rgba(52,92,150,.20),transparent 62%),radial-gradient(1000px 640px at 50% 112%,rgba(40,84,110,.22),transparent 64%),#080c15;background-attachment:fixed}
+a{color:var(--acc)}
+.glass{background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.04));-webkit-backdrop-filter:blur(28px) saturate(175%);backdrop-filter:blur(28px) saturate(175%);border:1px solid var(--line2);border-radius:var(--r);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),inset 0 -1px 0 rgba(0,0,0,.28),0 18px 46px rgba(0,0,0,.36)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+/* top bar (computer) */
+.top{position:sticky;top:12px;z-index:9;margin:12px auto 0;max-width:1120px;padding:0 22px}
+.top .in{display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 10px 0 20px;border-radius:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em;font-size:17px;text-decoration:none;color:var(--text)}
+.brand i{width:22px;height:22px;border-radius:5px;border:1.5px solid var(--text);background:linear-gradient(135deg,rgba(255,255,255,.28),rgba(255,255,255,0) 60%);display:block}
+.brand small{font-weight:500;color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:4px}
+.tabs a{padding:9px 15px;border-radius:9px;color:var(--mut);text-decoration:none;font-size:14.5px;font-weight:600;transition:.18s}
+.tabs a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+.tabs a.on{color:var(--text);background:rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.22)}
+/* bottom bar (phone) */
+.dock{display:none;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:9;padding:6px;border-radius:18px;justify-content:space-between}
+.dock a{flex:1;display:grid;justify-items:center;gap:3px;padding:8px 2px;border-radius:12px;color:var(--mut);text-decoration:none;font-size:11px;font-weight:600}
+.dock svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.dock a.on{color:var(--text);background:rgba(255,255,255,.14)}
+/* views */
+.view{display:none;padding:64px 0 90px;animation:in .35s ease}
+.view.on{display:block}@keyframes in{from{opacity:.4}to{opacity:1}}
+h1{font-family:var(--serif);font-size:clamp(40px,5.6vw,68px);line-height:1.04;letter-spacing:-.02em;margin:0 0 22px;font-weight:500}
+h1 em,h2 em{font-style:italic;color:var(--acc)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3.6vw,44px);letter-spacing:-.015em;line-height:1.12;margin:0 0 12px}
+h3{font-size:18px;margin:0 0 8px;letter-spacing:-.01em}
+.lead{font-size:19px;color:var(--mut);max-width:34em;margin:0 0 28px}
+.sub{color:var(--mut);max-width:42em;margin:0 0 32px;font-size:17px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:20px}
+.eyebrow b{flex:none;width:28px;height:1px;background:var(--mut)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:10px;font-weight:600;font-size:15.5px;text-decoration:none;border:0;cursor:pointer;color:#0a1120;background:var(--grad);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 8px 22px rgba(0,0,0,.3);font-family:inherit;transition:.18s}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.07)}
+.btn.ghost{color:var(--text);background:rgba(255,255,255,.07);border:1px solid var(--line2);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.stat{padding:18px 20px}.stat b{display:block;font-family:var(--serif);font-weight:500;font-size:30px;letter-spacing:-.01em}.stat span{color:var(--mut);font-size:14px}
+.grid{display:grid;gap:16px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{padding:24px}.card p{margin:0;color:var(--mut);font-size:15.5px}
+.ico{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;margin-bottom:16px;background:rgba(255,255,255,.06);border:1px solid var(--line2)}
+.ico svg{width:19px;height:19px;stroke:var(--text);fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.step{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--mut);margin-bottom:8px}
+/* device mockups */
+.devices{position:relative;height:380px}
+.mac{position:absolute;right:0;top:10px;width:92%;border-radius:12px;overflow:hidden}
+.mac .bar{height:30px;display:flex;gap:6px;align-items:center;padding:0 12px;border-bottom:1px solid var(--line)}
+.mac .bar i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28)}
+.scr{padding:16px}.scr .h{height:96px;border-radius:8px;background:linear-gradient(160deg,hsl(var(--h) 26% 44%),hsl(var(--h) 30% 24%))}
+.scr .l{height:9px;border-radius:5px;background:rgba(255,255,255,.16);margin-top:12px}.scr .l.s{width:55%}
+.scr .row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.scr .row div{height:50px;border-radius:9px;background:rgba(255,255,255,.09)}
+.phone{position:absolute;left:0;bottom:0;width:150px;border-radius:22px;padding:7px}
+.phone .scr{padding:10px;border-radius:19px;background:rgba(5,8,16,.55)}.phone .scr .h{height:74px}.phone .scr .row{grid-template-columns:1fr 1fr}.phone .scr .row div{height:38px}
+.sample .mac{position:static;width:100%}.sample{padding:14px}.sample .meta{padding:16px 8px 6px}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.tag.g{color:var(--acc)}
+.price b{display:block;font-family:var(--serif);font-weight:500;font-size:52px;letter-spacing:-.02em;line-height:1.05;margin:14px 0 4px}
+.price small{color:var(--mut);font-size:14px}
+.price ul{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:9px;color:var(--mut);font-size:15.5px}
+.price li{padding-left:24px;position:relative}.price li:before{content:"";position:absolute;left:2px;top:7px;width:11px;height:6px;border-left:2px solid var(--ok);border-bottom:2px solid var(--ok);transform:rotate(-45deg)}
+.price.best{border-color:rgba(238,243,251,.55);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.05))}
+.price .btn{width:100%;justify-content:center}
+details{padding:18px 22px;margin-bottom:10px;border-radius:12px}summary{cursor:pointer;font-weight:650;font-size:16.5px}details p{color:var(--mut);margin:10px 0 0}
+form{display:grid;gap:14px}label{font-size:13.5px;font-weight:650;display:grid;gap:7px;color:var(--mut)}
+input,textarea{font:inherit;padding:13px 14px;border:1px solid var(--line2);border-radius:9px;background:rgba(5,8,16,.5);color:var(--text);outline:none}
+input:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(157,188,242,.2)}
+footer{padding:0 0 120px;color:var(--dim);font-size:14px;text-align:center}
+#preview{background:rgba(251,191,36,.14);border-bottom:1px solid rgba(251,191,36,.4);font-size:13.5px;padding:9px 22px;color:#fde9a8;text-align:center}
+@media(max-width:860px){
+ .tabs{display:none}.dock{display:flex}.top{top:8px;padding:0 12px}.top .in{height:52px}
+ .hero{grid-template-columns:1fr;gap:30px}.devices{height:300px}.g3,.g2{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr;gap:8px}.stat{padding:14px 12px}.stat b{font-size:22px}.stat span{font-size:12px}
+ .view{padding:34px 0 60px}.btn{padding:13px 20px}
+}
+</style>
+</head>
+<body>
+<div id="preview" hidden></div>
+
+<div class="top"><div class="in glass">
+  <a class="brand" href="#home"><i></i><span><span class="studio"></span> <small class="tagline"></small></span></a>
+  <nav class="tabs" id="tabs"></nav>
+  <a class="btn" href="#quote" style="padding:10px 18px;font-size:14px">Get a quote</a>
+</div></div>
+<nav class="dock glass" id="dock"></nav>
+
+<main class="wrap">
+
+<section class="view" id="v-home">
+  <div class="hero">
+    <div>
+      <span class="eyebrow"><b></b><span>Taking new projects in <span class="city"></span></span></span>
+      <h1>A website that <em>actually shows</em> your business.</h1>
+      <p class="lead">Clear, fast sites for local businesses: what you offer, your hours, a map and one-tap contact. One flat price, built in about a week, and looked after once it's live.</p>
+      <div class="cta"><a class="btn" href="#quote">Request a free mock-up</a><a class="btn ghost" href="#pricing">View pricing</a></div>
+    </div>
+    <div class="devices">
+      <div class="mac glass" style="--h:212"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><div class="h"></div><div class="l"></div><div class="l s"></div><div class="row"><div></div><div></div><div></div></div></div></div>
+      <div class="phone glass" style="--h:28"><div class="scr"><div class="h"></div><div class="l"></div><div class="l s"></div><div class="row"><div></div><div></div></div></div></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat glass"><b id="s1"></b><span>launch price, simple site</span></div>
+    <div class="stat glass"><b>~1 week</b><span>to your first draft</span></div>
+    <div class="stat glass"><b>$0</b><span>until you like the mock-up</span></div>
+  </div>
+</section>
+
+<section class="view" id="v-services">
+  <h2>What you <em>get</em></h2>
+  <p class="sub">Most small-business sites fail the same few ways: the address doesn't load, the menu is a photo nobody can read on a phone, or the hours are two years old. I fix exactly that.</p>
+  <div class="grid g3" id="feat"></div>
+  <h2 style="margin-top:64px">How it <em>works</em></h2>
+  <p class="sub">Four steps. No meetings you don't need.</p>
+  <div class="grid g2">
+    <div class="card glass"><div class="step">One</div><h3>You tell me about the business</h3><p>A short form or a quick call: what you do, your hours, your photos, and any site you like the look of.</p></div>
+    <div class="card glass"><div class="step">Two</div><h3>I send a free mock-up</h3><p>You see a real draft of your site before paying. If it isn't right, you owe nothing.</p></div>
+    <div class="card glass"><div class="step">Three</div><h3>We refine it together</h3><p>Two rounds of changes are included. Half is due to start the build, half when you approve the final site.</p></div>
+    <div class="card glass"><div class="step">Four</div><h3>It goes live</h3><p>I connect it to your domain, test it on phones and computers, and hand you the files and a plain guide.</p></div>
+  </div>
+</section>
+
+<section class="view" id="v-work">
+  <h2>Sample <em>work</em></h2>
+  <p class="sub">I'm starting out, so these are design concepts rather than client projects. I'd rather show honest samples than borrowed logos. Ask, and I'll make a free mock-up for your business before you pay anything.</p>
+  <div class="grid g3" id="samples"></div>
+</section>
+
+<section class="view" id="v-pricing">
+  <h2>Simple, <em>flat</em> pricing</h2>
+  <p class="sub">Stated up front. If your business needs something different, you get a written quote before any work starts.</p>
+  <div class="grid g3">
+    <div class="card glass price best"><span class="tag g" id="launchTag">Launch price</span><b id="p1"></b><small id="p1s"></small><ul><li>One to five pages</li><li>Phone-first design</li><li>Hours, map, contact, social links</li><li>Two rounds of changes</li></ul><a class="btn" data-pay="deposit" href="#quote">Start with a deposit</a></div>
+    <div class="card glass price"><span class="tag">Larger sites</span><b id="p2"></b><small>starting price, quoted per project</small><ul><li>More pages or sections</li><li>Full menus, galleries, service lists</li><li>Quote and booking-request forms</li><li>Three rounds of changes</li></ul><a class="btn ghost" href="#quote">Request a quote</a></div>
+    <div class="card glass price"><span class="tag">Care plan</span><b id="p3"></b><small>per month, cancel any time</small><ul><li>Text and photo updates on request</li><li>Hours and holiday changes</li><li>Monthly check that everything works</li><li>Help with your domain and hosting</li></ul><a class="btn ghost" data-pay="care" href="#quote">Add the care plan</a></div>
+  </div>
+  <p style="color:var(--dim);font-size:14.5px;margin-top:20px">Not included: your domain name and hosting fees (usually a few dollars a month, paid by you to the provider), online stores with checkout, and custom software.</p>
+  <h2 style="margin-top:60px;font-size:28px">Questions</h2>
+  <div style="margin-top:18px">
+  <details class="glass"><summary>Do I need to know anything technical?</summary><p>No. You send words and photos. I handle the rest and walk you through the two things only you can do: buying your domain and choosing hosting, both in your own name.</p></details>
+  <details class="glass"><summary>How do I pay?</summary><p>By card through Stripe, a secure payment company. Half to start, half when you approve the finished site. The care plan is billed monthly and you can cancel any time.</p></details>
+  <details class="glass"><summary>What if I already have a site?</summary><p>I can rebuild it, or just fix what's broken. Send me the address and I'll tell you honestly which makes sense.</p></details>
+  <details class="glass"><summary>Can I update it myself later?</summary><p>Yes. The files are yours. Most owners prefer the care plan so they can simply text a change, but it's your choice.</p></details>
+  </div>
+</section>
+
+<section class="view" id="v-about">
+  <h2>About the <em>studio</em></h2>
+  <div class="grid g2" style="margin-top:26px">
+    <div class="card glass"><h3>Who you're working with</h3><p style="margin-bottom:12px">I'm <span class="owner"></span>, based in <span class="city"></span>. I started <span class="studio"></span> after noticing how many good local businesses have a web address that doesn't load, or a page nobody has touched in years.</p><p>You deal with one person from the first message to launch day.</p></div>
+    <div class="card glass"><h3>How the work gets done</h3><p style="margin-bottom:12px">I use modern AI tools to draft layouts and copy quickly, and I review every page myself before you see it. That's how a one-person studio can charge a fair price and still deliver fast.</p><p>Every site is tested on a phone and a computer before it goes live.</p></div>
+    <div class="card glass" style="grid-column:1/-1"><h3>What I won't do</h3><p>Invent reviews, promise search rankings, lock you into a contract, or hold your domain hostage. If a simple page builder would serve you better than hiring me, I'll tell you.</p></div>
+  </div>
+</section>
+
+<section class="view" id="v-quote">
+  <div class="grid g2" style="align-items:start">
+    <div><h2>Get a <em>free mock-up</em></h2><p class="sub">Tell me about your business. I reply within one business day, usually with a draft of your site.</p>
+      <div class="card glass"><h3>What happens next</h3><p>1. I look at your current site and listings.<br>2. You get a mock-up and a flat price.<br>3. You decide. No pressure, no follow-up spam.</p></div>
+      <p id="mail" style="color:var(--mut);margin-top:18px"></p></div>
+    <form id="qform" class="card glass">
+      <label>Your name<input name="name" required autocomplete="name"></label>
+      <label>Business name<input name="business" required></label>
+      <label>Current website, if any<input name="site" placeholder="example.com"></label>
+      <label>What do you need?<textarea name="msg" rows="4" required></textarea></label>
+      <button class="btn" type="submit" style="justify-content:center">Send request</button>
+      <small id="formNote" style="color:var(--mut)"></small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; <span id="yr"></span> <span class="studio"></span> &middot; <span class="city"></span></div></footer>
+
+<script src="config.js"></script>
+<script>
+const S=window.SITE,$=q=>document.querySelector(q),all=(q,f)=>document.querySelectorAll(q).forEach(f),usd=n=>"$"+n.toLocaleString("en-US");
+const I={home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',services:'<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>',work:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',pricing:'<path d="M12 2v20M17 6.5c0-1.9-2.2-3-5-3s-5 1.100-5 3 2.200 3 5 3.500 5 1.600 5 3.500-2.200 3-5 3-5-1.100-5-3"/>',about:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.600-6 8-6s8 2 8 6"/>',quote:'<path d="M4 5h16v11H9l-5 4z"/>'};
+const TABS=[["home","Home"],["services","Services"],["work","Work"],["pricing","Pricing"],["about","About"],["quote","Quote"]];
+$("#tabs").innerHTML=TABS.slice(0,5).map(([id,n])=>`<a href="#${id}" data-t="${id}">${n}</a>`).join("");
+$("#dock").innerHTML=TABS.filter(t=>t[0]!="about").map(([id,n])=>`<a href="#${id}" data-t="${id}"><svg viewBox="0 0 24 24">${I[id]}</svg>${n}</a>`).join("");
+function show(){let id=(location.hash||"#home").slice(1);if(!document.getElementById("v-"+id))id="home";
+ all(".view",v=>v.classList.toggle("on",v.id=="v-"+id));all("[data-t]",a=>a.classList.toggle("on",a.dataset.t==id));scrollTo(0,0)}
+addEventListener("hashchange",show);show();
+document.title=S.studioName+" "+(S.tagline||"")+" | Websites for small businesses";$("#yr").textContent=new Date().getFullYear();
+all(".owner",e=>e.textContent=S.ownerName);all(".city",e=>e.textContent=S.city);all(".studio",e=>e.textContent=S.studioName);all(".tagline",e=>e.textContent=S.tagline||"");
+const P=S.prices,L=S.showLaunchPrice;$("#s1").textContent=usd(L?P.launch:P.standard);
+$("#p1").textContent=usd(L?P.launch:P.standard);$("#p1s").textContent=L?"simple site, regular price "+usd(P.standard):"simple site, one-time";if(!L)$("#launchTag").textContent="Simple site";
+$("#p2").textContent=usd(P.larger)+"+";$("#p3").textContent=usd(P.care);
+const F=[["Works on every phone","Most customers find you on a phone. Every page is built and tested for a small screen first.",'<rect x="7" y="2" width="10" height="20" rx="2.500"/><path d="M11 18h2"/>'],["The basics, done right","What you sell, hours, address with a map, and phone and email that work with one tap.",'<path d="M5 12l5 5L20 7"/>'],["Found on Google","Real text instead of images of text, clean titles, and the details Google uses to show you correctly.",'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.500-4.500"/>'],["Yours to keep","Your domain and hosting stay in your name. You get the finished files. No lock-in.",'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0"/>'],["Fast to launch","A simple site is usually ready to review within a week of getting your photos and details.",'<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>'],["Looked after","With the care plan, you text a change or a new photo and it's updated for you.",'<path d="M12 21s-7-4.500-7-10a4 4 0 017-2.500A4 4 0 0119 11c0 5.500-7 10-7 10z"/>']];
+$("#feat").innerHTML=F.map(f=>`<div class="card glass"><div class="ico"><svg viewBox="0 0 24 24">${f[2]}</svg></div><h3>${f[0]}</h3><p>${f[1]}</p></div>`).join("");
+$("#samples").innerHTML=S.samples.map(s=>`<div class="sample glass"><div class="mac glass" style="--h:${s.hue}"><div class="bar"><i></i><i></i><i></i></div><div class="scr"><div class="h"></div><div class="l"></div><div class="l s"></div><div class="row"><div></div><div></div><div></div></div></div></div><div class="meta"><span class="tag">${s.kind}</span><h3 style="margin-top:12px">${s.name}</h3><p style="margin:0;color:var(--mut);font-size:15px">${s.note}</p></div></div>`).join("");
+all("[data-pay]",a=>{const u=S.stripe[a.dataset.pay];if(u){a.href=u;a.target="_blank";a.rel="noopener"}});
+if(S.contactEmail)$("#mail").innerHTML=`Prefer email? <a href="mailto:${S.contactEmail}">${S.contactEmail}</a>`;
+$("#qform").addEventListener("submit",e=>{e.preventDefault();const f=new FormData(e.target);
+ if(!S.contactEmail){$("#formNote").textContent="Preview only: the contact address is not set yet, so nothing was sent.";return}
+ location.href=`mailto:${S.contactEmail}?subject=${encodeURIComponent("Website quote: "+f.get("business"))}&body=${encodeURIComponent(`Name: ${f.get("name")}\nBusiness: ${f.get("business")}\nCurrent site: ${f.get("site")||"none"}\n\n${f.get("msg")}`)}`});
+const todo=[];if(!S.contactEmail)todo.push("contact email");if(!S.stripe.deposit)todo.push("Stripe deposit link");if(!S.stripe.care)todo.push("Stripe care-plan link");
+if(todo.length&&["localhost","127.0.0.1",""].includes(location.hostname)){const p=$("#preview");p.hidden=false;p.textContent="PREVIEW, not published. Still to set: "+todo.join(", ")+"."}
+</script>
+</body>
+</html>
