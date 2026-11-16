@@ -16,6 +16,13 @@ window.SITE = {
     deposit: "",
     care: ""
   },
+  social: {
+    show: true,
+    starter: 400,
+    growth: 900,
+    full: 1500,
+    fiverrGig: ""
+  },
   samples: [
     { name: "Neighborhood restaurant", kind: "concept", note: "Menu as real text, hours, map, one-tap call.", hue: 22 },
     { name: "Boutique and gift shop", kind: "concept", note: "What's in store, hours, directions, Instagram feed link.", hue: 212 },
