@@ -3,7 +3,7 @@ window.SITE = {
   studioName: "Site Ready",
   tagline: "Studio",
   city: "Houston, Texas",
-  contactEmail: "",
+  contactEmail: "hello@sitereadystudio.com",
   phone: "",
   prices: {
     launch: 500,
