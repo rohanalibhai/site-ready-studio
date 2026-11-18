@@ -71,6 +71,9 @@
     }
     if (interest) interest.split(",").forEach(tick);
     if (ref && form.elements.ref) form.elements.ref.value = ref.slice(0, 80);
+    /* The optional block stays closed unless the link pre-filled something in it. */
+    var opt = q("#opt");
+    if (opt && ((form.elements["package"] && form.elements["package"].value) || qa("input[name=interest]:checked", form).length)) opt.open = true;
     var email = form.getAttribute("data-email"), note = q("#formNote");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
